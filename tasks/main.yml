@@ -14,4 +14,3 @@
 - import_tasks: tasks.yml
 - import_tasks: jobs.yml
 - import_tasks: ffdc.yml
-
