@@ -1,3 +1,4 @@
+---
 - name: get lxcalog data from LXCA
   pylxca_module:
     login_user: "{{ lxca_user }}"
@@ -6,5 +7,4 @@
     command_options: lxcalog
   register: rslt
   tags:
-     lxcalog
-
+    lxcalog

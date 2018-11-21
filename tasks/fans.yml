@@ -1,3 +1,4 @@
+---
 - name: get fans data from LXCA
   pylxca_module:
     login_user: "{{ lxca_user }}"
@@ -6,4 +7,4 @@
     command_options: fans
   register: rslt
   tags:
-     fans
+    fans

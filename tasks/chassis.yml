@@ -1,3 +1,4 @@
+---
 - name: get chassis data from LXCA
   pylxca_module:
     login_user: "{{ lxca_user }}"
