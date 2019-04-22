@@ -12,5 +12,4 @@
 - import_tasks: users.yml
 - import_tasks: lxcalog.yml
 - import_tasks: tasks.yml
-- import_tasks: jobs.yml
 - import_tasks: ffdc.yml
