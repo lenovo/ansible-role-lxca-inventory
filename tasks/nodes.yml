@@ -1,10 +1,79 @@
 ---
-- name: get nodes data from LXCA
-  pylxca_module:
-    login_user: "{{ lxca_user }}"
-    login_password: "{{ lxca_password }}"
-    auth_url: "{{ lxca_url }}"
-    command_options: nodes
-  register: rslt
-  tags:
-    nodes
+  - name: Get nodes data from LXCA
+    pylxca_module:
+      login_user: "{{ lxca_user }}"
+      login_password: "{{ lxca_password }}"
+      auth_url: "{{ lxca_url }}"
+      command_options: nodes
+    register: rslt
+    tags:
+      nodes
+  
+  - name: Get node data by UUID from LXCA
+    pylxca_module:
+      login_user: "{{ lxca_user }}"
+      login_password: "{{ lxca_password }}"
+      auth_url: "{{ lxca_url }}"
+      uuid: "{{ uuid }}"
+      command_options: nodes
+    register: rslt
+    tags:
+      node_by_uuid
+  
+  - name: Update node data by UUID from LXCA
+    pylxca_module:
+      login_user: "{{ lxca_user }}"
+      login_password: "{{ lxca_password }}"
+      auth_url: "{{ lxca_url }}"
+      uuid: "{{ uuid }}"
+      modify: "{{ modify }}"
+      command_options: nodes
+    register: rslt
+    tags:
+      update_node
+  
+  - name: Get chassis data by UUID from LXCA
+    pylxca_module:
+      login_user: "{{ lxca_user }}"
+      login_password: "{{ lxca_password }}"
+      auth_url: "{{ lxca_url }}"
+      chassis: "{{ chassis }}"
+      command_options: nodes
+    register: rslt
+    tags:
+      node_by_chassisuuid
+  
+  - name: Get nodes data by status from LXCA
+    pylxca_module:
+      login_user: "{{ lxca_user }}"
+      login_password: "{{ lxca_password }}"
+      auth_url: "{{ lxca_url }}"
+      status: "{{ status }}"
+      command_options: nodes
+    register: rslt
+    tags:
+      nodes_by_status
+  
+  - name: Get node data by UUID and status from LXCA
+    pylxca_module:
+      login_user: "{{ lxca_user }}"
+      login_password: "{{ lxca_password }}"
+      auth_url: "{{ lxca_url }}"
+      uuid: "{{ uuid }}"
+      status: "{{ status }}"
+      command_options: nodes
+    register: rslt
+    tags:
+      node_by_status
+  
+  - name: Get chassis data by status from LXCA
+    pylxca_module:
+      login_user: "{{ lxca_user }}"
+      login_password: "{{ lxca_password }}"
+      auth_url: "{{ lxca_url }}"
+      chassis: "{{ chassis }}"
+      status: "{{ status }}"
+      command_options: nodes
+    register: rslt
+    tags:
+      node_by_chassisstatus
