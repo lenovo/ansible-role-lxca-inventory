@@ -59,18 +59,23 @@ Example Playbook
 
 To execute an Ansible playbook, use the following command:
 ```
-ansible-playbook -e "lxca_user=USERID lxca_password=Passw0rd
-lxca_url=https://10.240.29.217" inventory.yml -vvvv
+ansible-playbook -e "lxca_user=<username> lxca_password=<password>
+lxca_url=https://<lxca-ip>" inventory.yml -vvvv
 ```
 -vvv is an optional verbos command that helps identify what is happening during
 playbook execution.
 
     - name: get nodes data from LXCA
-      pylxca_module:
-        login_user: "{{ lxca_user }}"
-        login_password: "{{ lxca_password }}"
-        auth_url: "{{ lxca_url }}"
-        command_options: nodes
-      register: rslt
-      tags:
-         nodes
+      hosts: localhost
+      connection: local
+      tasks:
+        - name: get nodes
+          pylxca_module:
+          login_user: "{{ lxca_user }}"
+          login_password: "{{ lxca_password }}"
+          auth_url: "{{ lxca_url }}"
+          command_options: nodes
+          register: rslt
+          tags:
+            - nodes
+
